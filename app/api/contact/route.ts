@@ -2,9 +2,7 @@
 export const dynamic = "force-dynamic";
 
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   try {
@@ -28,20 +26,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Guardar en la base de datos
-    const contact = await prisma.contact.create({
-      data: {
-        name: name.trim(),
-        email: email.trim().toLowerCase(),
-        subject: subject?.trim() || '',
-        message: message.trim(),
-      },
-    });
-
     return NextResponse.json(
       { 
         message: 'Mensaje enviado exitosamente',
-        id: contact.id 
       },
       { status: 201 }
     );
@@ -52,8 +39,6 @@ export async function POST(request: NextRequest) {
       { error: 'Error interno del servidor' },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
