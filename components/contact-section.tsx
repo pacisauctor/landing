@@ -227,7 +227,7 @@ const ContactSection = () => {
                   label="Invítame un Café" 
                   icon={<Coffee className="w-4 h-4" />}
                   className="coffee-btn w-full"
-                  onClick={() => window.open('https://buymeacoffee.com/axelgarcia', '_blank')}
+                  onClick={() => window.open('https://buymeacoffee.com/agarciadarce', '_blank')}
                 />
               </motion.div>
             </Card>
@@ -344,16 +344,21 @@ const ContactSection = () => {
               o simplemente quieras discutir una idea, estoy aquí para ayudarte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                label="Agendar una Llamada" 
+              <Button
+                label="Agendar una Llamada"
                 icon={<Phone className="w-5 h-5" />}
                 className="bg-white text-customBlue-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-300"
+                onClick={() => {
+                  const url = 'https://calendar.app.google/ATc1uxZiFkTtP2876';
+                  const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                  if (newWindow) newWindow.opener = null;
+                }}
               />
-              <Button 
+              {/* <Button 
                 label="Ver mi CV" 
                 icon={<ExternalLink className="w-5 h-5" />}
                 className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-customBlue-600 font-medium py-3 px-8 rounded-lg transition-all duration-300"
-              />
+              /> */}
             </div>
           </Card>
         </motion.div>

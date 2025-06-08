@@ -62,7 +62,7 @@ const CertificatesSection = () => {
     },
     {
       nombre: "Curso Excel Avanzado",
-      institucion: "Colegio de Economistas de Lima - Perú",
+      institucion: "Universidad Nacional de Ingeniería",
       año: "2024",
       categoria: "Análisis",
       destacado: false,
@@ -71,7 +71,7 @@ const CertificatesSection = () => {
     },
     {
       nombre: "Introducción a la Ciencia de Datos",
-      institucion: "UNI",
+      institucion: "Colegio de Economistas de Lima - Perú",
       año: "2019",
       categoria: "Análisis",
       destacado: false,
