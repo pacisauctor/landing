@@ -190,3 +190,12 @@ body {
 .coffee-btn {
   @apply bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
 }
+
+/* Spinning ring for Hero image */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin 8s linear infinite;
+}

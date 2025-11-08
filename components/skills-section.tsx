@@ -151,9 +151,9 @@ const SkillsSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center"
+            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
           >
-            <Code className="w-6 h-6 mr-3 text-customBlue-600" />
+            <Code className="w-6 h-6 text-customBlue-600" />
             Habilidades Técnicas
           </motion.h3>
 
@@ -166,11 +166,8 @@ const SkillsSection = () => {
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               >
                 <Card className="h-full p-6 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center mb-6">
-                    <div className={`w-12 h-12 ${category.bgColor} rounded-lg flex items-center justify-center mr-4`}>
-                      <category.icon className={`w-6 h-6 ${category.color}`} />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy-900">
+                  <div className="flex items-center mb-6 min-w-0">
+                    <h4 className="text-base sm:text-lg font-bold text-navy-900 truncate flex-1 min-w-0">
                       {category.categoria}
                     </h4>
                   </div>
@@ -213,9 +210,9 @@ const SkillsSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center"
+            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
           >
-            <Heart className="w-6 h-6 mr-3 text-red-500" />
+            <Heart className="w-6 h-6 text-red-500" />
             Habilidades Blandas
           </motion.h3>
 
@@ -228,11 +225,7 @@ const SkillsSection = () => {
                 transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
               >
                 <Card className="p-6 h-full hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-customBlue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <skill.icon className="w-6 h-6 text-customBlue-600" />
-                    </div>
-                    
+                  <div className="flex items-start">
                     <div className="flex-1">
                       <div className="flex justify-between items-center mb-2">
                         <h4 className="text-lg font-bold text-navy-900">
@@ -277,17 +270,17 @@ const SkillsSection = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl font-bold mb-2">5+</div>
+                <div className="text-4xl font-bold mb-2">4+</div>
                 <div className="text-lg opacity-90">Años de Experiencia</div>
               </div>
               
               <div>
-                <div className="text-4xl font-bold mb-2">20+</div>
+                <div className="text-4xl font-bold mb-2">10+</div>
                 <div className="text-lg opacity-90">Tecnologías Dominadas</div>
               </div>
               
               <div>
-                <div className="text-4xl font-bold mb-2">50+</div>
+                <div className="text-4xl font-bold mb-2">15+</div>
                 <div className="text-lg opacity-90">Proyectos Completados</div>
               </div>
             </div>

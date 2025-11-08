@@ -6,8 +6,8 @@ import { User, MapPin, GraduationCap, Briefcase } from 'lucide-react';
 
 const AboutSection = () => {
   const stats = [
-    { icon: Briefcase, label: 'Años de Experiencia', value: '5+' },
-    { icon: User, label: 'Proyectos Completados', value: '50+' },
+    { icon: Briefcase, label: 'Años de Experiencia', value: '4+' },
+    { icon: User, label: 'Proyectos Completados', value: '15+' },
     { icon: GraduationCap, label: 'Certificaciones', value: '8' },
     { icon: MapPin, label: 'Ubicación', value: 'Nicaragua' },
   ];

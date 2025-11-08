@@ -34,7 +34,7 @@ const Footer = () => {
                 Axel García
               </h3>
               <p className="text-gray-300 text-sm">
-                Project Manager & Lead Developer
+                Head of Delivery & Engineering Operations en Tizo
               </p>
             </motion.div>
             
@@ -111,14 +111,11 @@ const Footer = () => {
               </p>
               <p className="text-gray-400">
                 <a 
-                  href="tel:+50581380937"
+                  href="https://wa.me/50588360570"
                   className="hover:text-blue-300 transition-colors duration-300"
                 >
-                  (505) 81380937
+                  (505) 88360570
                 </a>
-              </p>
-              <p className="text-gray-400">
-                Villa Miguel Gutierrez, Nicaragua
               </p>
             </motion.div>
           </div>

@@ -90,14 +90,8 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: 'Teléfono',
-      value: '(505) 81380937',
-      link: 'tel:+50581380937'
-    },
-    {
-      icon: MapPin,
-      label: 'Ubicación',
-      value: 'Villa Miguel Gutierrez, Nicaragua',
-      link: '#'
+      value: '(505) 88360570',
+      link: 'https://wa.me/50588360570'
     }
   ];
 
@@ -154,29 +148,24 @@ const ContactSection = () => {
                 Información de Contacto
               </h3>
               
-              <div className="space-y-6 mb-8">
+              <div className="space-y-6 mb-8 flex flex-col justify-start items-start">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                    className="flex items-center space-x-4"
+                    className="space-y-1 w-full"
                   >
-                    <div className="w-12 h-12 bg-customBlue-100 rounded-lg flex items-center justify-center">
-                      <info.icon className="w-6 h-6 text-customBlue-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-500 mb-1">
-                        {info.label}
-                      </p>
-                      <a 
-                        href={info.link}
-                        className="text-navy-900 font-semibold hover:text-customBlue-600 transition-colors duration-300"
-                      >
-                        {info.value}
-                      </a>
-                    </div>
+                    <p className="text-sm font-medium text-gray-500">
+                      {info.label}
+                    </p>
+                    <a 
+                      href={info.link}
+                      className="text-navy-900 font-semibold hover:text-customBlue-600 transition-colors duration-300 flex items-center gap-2 whitespace-nowrap w-full sm:w-auto min-w-0 overflow-hidden"
+                    >
+                      <span className="truncate max-w-full">{String(info.value).replace(/\s/g, '\u00A0')}</span>
+                    </a>
                   </motion.div>
                 ))}
               </div>

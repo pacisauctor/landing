@@ -22,7 +22,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="order-2 lg:order-1 text-center lg:text-left"
           >
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl sm:text-2xl lg:text-3xl text-blue-600 font-semibold mb-6"
             >
-              Project Manager & Lead Developer
+              Head of Delivery & Engineering Operations en tizo
             </motion.h2>
             
             <motion.p
@@ -51,7 +51,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Especializado en gestión de proyectos y desarrollo de software con más de 5 años de experiencia 
+              Especializado en gestión de proyectos y desarrollo de software con más de 4 años de experiencia 
               liderando equipos y creando soluciones tecnológicas innovadoras.
             </motion.p>
             
@@ -84,12 +84,15 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center lg:justify-end"
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full animate-pulse"></div>
-                <div className="absolute inset-2 bg-white rounded-full overflow-hidden">
+                <div
+                  className="absolute inset-0 rounded-full spin-slow"
+                  style={{ background: 'conic-gradient(from 0deg, #60a5fa, #1d4ed8, #60a5fa)' }}
+                ></div>
+                <div className="absolute inset-2 bg-white rounded-full overflow-hidden shadow-lg">
                   <Image
                     src="axel.jpg"
                     alt="Axel García - Project Manager & Developer"
@@ -99,23 +102,6 @@ const HeroSection = () => {
                   />
                 </div>
               </div>
-              
-              {/* Elementos decorativos */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute -top-4 -right-4 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center"
-              >
-                <span className="text-2xl">💼</span>
-              </motion.div>
-              
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center"
-              >
-                <span className="text-xl">⚡</span>
-              </motion.div>
             </div>
           </motion.div>
         </div>

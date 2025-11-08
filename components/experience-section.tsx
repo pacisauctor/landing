@@ -15,20 +15,20 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      puesto: "Project Manager",
-      empresa: "Tizo",
+      puesto: "Head of Delivery & Engineering Operations",
+      empresa: "tizo",
       periodo: "2024 / Actualidad",
       descripcion: "Responsable de planificar, ejecutar y cerrar proyectos dentro de la organización.",
-      herramientas: ["Excel", "Jira", "Power BI", "Click Up", "Kubernetes", "Jenkins", "AWS"],
+      herramientas: ["Jira", "Kubernetes", "Jenkins", "AWS", "Java", "Angular", "Python", "SQL Server"],
       tipo: "full-time",
       icon: Building
     },
     {
-      puesto: "Lead Developer",
-      empresa: "Tizo",
+      puesto: "Backend Lead Developer",
+      empresa: "tizo",
       periodo: "01/2022 – 12/2023",
       descripcion: "Liderar equipo para la creación de nuevas funcionalidades y mantenimiento del sistema.",
-      herramientas: ["Kubernetes", "AWS", "Jenkins", "Sentry", "Jira", "Click Up", "SQL Server", "Node", "Express", "Python Fast API"],
+      herramientas: ["Kubernetes", "AWS", "Jenkins", "Sentry", "Jira", "SQL Server", "Node", "Express", "Python Fast API"],
       tipo: "full-time",
       icon: Code
     },
@@ -54,20 +54,20 @@ const ExperienceSection = () => {
 
   const freelanceExperiences = [
     {
+      puesto: "VP Of Engineering",
+      empresa: "Canela",
+      periodo: "12/2024 - Actualidad",
+      descripcion: "Crear sistemas de gestión de proyectos y equipos de desarrollo.",
+      herramientas: ["AWS", "NestJS", "Nextjs", "Flutter"],
+      tipo: "freelance",
+      icon: Code
+    },
+    {
       puesto: "Full Stack Developer",
       empresa: "Barter Capital",
       periodo: "01/2022 - 06/2022",
       descripcion: "Crear nuevas funcionalidades y mantener el software heredado.",
       herramientas: ["Postgres", "Python", "Fast API", "Django", "Angular", "React", "Nextjs", "AWS", "Github Actions"],
-      tipo: "freelance",
-      icon: Code
-    },
-    {
-      puesto: "Junior Developer",
-      empresa: "Archer Media Group",
-      periodo: "09/2020 - 03/2021",
-      descripcion: "Diseñar e Implementar Sistemas según la necesidad del Cliente",
-      herramientas: ["Postgres", "Flask", "Nextjs", "Bluehost"],
       tipo: "freelance",
       icon: Code
     },
@@ -132,9 +132,9 @@ const ExperienceSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center"
+            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
           >
-            <Building className="w-6 h-6 mr-3 text-customBlue-600" />
+            <Building className="w-6 h-6 text-customBlue-600" />
             Experiencia Profesional
           </motion.h3>
 
@@ -148,34 +148,32 @@ const ExperienceSection = () => {
                 className="timeline-item"
               >
                 <Card className="p-6 hover:shadow-xl transition-all duration-300">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-customBlue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <exp.icon className="w-6 h-6 text-customBlue-600" />
-                      </div>
-                      
-                      <div className="flex-1">
-                        <h4 className="text-xl font-bold text-navy-900 mb-1">
-                          {exp.puesto}
-                        </h4>
-                        <p className="text-customBlue-600 font-semibold mb-2">
-                          {exp.empresa}
-                        </p>
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className="flex items-center text-gray-500">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            <span className="text-sm">{exp.periodo}</span>
-                          </div>
-                          <Badge 
-                            value={getTypeLabel(exp.tipo)} 
-                            className={`${getTypeColor(exp.tipo)} px-2 py-1 rounded-full text-xs font-medium`}
-                          />
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                    {/* Izquierda: Icono + Puesto — Empresa */}
+                    <div className="flex items-center gap-2 flex-1 min-w-0 overflow-hidden">
+                      <div className="min-w-0 flex-1 overflow-hidden">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-lg md:text-xl font-bold text-navy-900 truncate">{exp.puesto}</span>
+                          <span className="text-gray-400">—</span>
+                          <span className="text-customBlue-600 font-semibold truncate">{exp.empresa}</span>
                         </div>
                       </div>
                     </div>
+
+                    {/* Derecha: Periodo + Tipo */}
+                    <div className="flex items-center gap-3 text-gray-500 sm:justify-end whitespace-nowrap flex-shrink-0">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{exp.periodo}</span>
+                      </div>
+                      <Badge 
+                        value={getTypeLabel(exp.tipo)} 
+                        className={`${getTypeColor(exp.tipo)} px-2 py-1 rounded-full text-xs font-medium`}
+                      />
+                    </div>
                   </div>
                   
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                     {exp.descripcion}
                   </p>
                   
@@ -200,9 +198,9 @@ const ExperienceSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center"
+            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
           >
-            <Code className="w-6 h-6 mr-3 text-customBlue-600" />
+            <Code className="w-6 h-6 text-customBlue-600" />
             Proyectos Freelance
           </motion.h3>
 
@@ -215,10 +213,7 @@ const ExperienceSection = () => {
                 transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
               >
                 <Card className="p-6 h-full hover:shadow-xl transition-all duration-300 project-card">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-customBlue-100 rounded-lg flex items-center justify-center">
-                      <exp.icon className="w-5 h-5 text-customBlue-600" />
-                    </div>
+                  <div className="flex items-center mb-4">
                     <Badge 
                       value={getTypeLabel(exp.tipo)} 
                       className={`${getTypeColor(exp.tipo)} px-2 py-1 rounded-full text-xs font-medium`}

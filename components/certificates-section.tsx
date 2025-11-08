@@ -178,7 +178,7 @@ const CertificatesSection = () => {
                     </div>
                   </div>
                   
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col justify-start items-start">
                     <h4 className="text-lg font-bold text-navy-900 mb-2 leading-tight">
                       {cert.nombre}
                     </h4>
@@ -187,7 +187,7 @@ const CertificatesSection = () => {
                       {cert.institucion}
                     </p>
                     
-                    <div className="flex items-center text-gray-500 mb-3">
+                    <div className="flex items-center justify-start text-gray-500 mb-3">
                       <Calendar className="w-4 h-4 mr-1" />
                       <span className="text-sm">{cert.año}</span>
                     </div>
@@ -196,12 +196,6 @@ const CertificatesSection = () => {
                       {cert.descripcion}
                     </p>
                     
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl">{getCategoryIcon(cert.categoria)}</span>
-                      <button className="text-customBlue-600 hover:text-customBlue-700 transition-colors duration-300">
-                        <ExternalLink className="w-5 h-5" />
-                      </button>
-                    </div>
                   </div>
                 </Card>
               </motion.div>
@@ -240,7 +234,7 @@ const CertificatesSection = () => {
                       />
                     </div>
                     
-                    <div className="flex-1">
+                    <div className="flex-1 flex flex-col justify-start items-start">
                       <div className="flex items-start justify-between mb-2">
                         <h4 className="text-lg font-bold text-navy-900 leading-tight">
                           {cert.nombre}
