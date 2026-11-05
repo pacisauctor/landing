@@ -8,18 +8,16 @@ import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
-import { Toast } from 'primereact/toast';
-import { useRef } from 'react';
 import { 
   Mail, 
   Phone, 
-  MapPin, 
   Linkedin, 
   Github, 
   Send,
   Coffee,
-  ExternalLink
+  MessageCircle
 } from 'lucide-react';
+import { CONTACT_EMAIL, EXTERNAL_LINKS, WHATSAPP_URL } from '@/lib/external-links';
 
 const ContactSection = () => {
   const [ref, inView] = useInView({
@@ -27,14 +25,12 @@ const ContactSection = () => {
     threshold: 0.1,
   });
 
-  const toast = useRef<Toast>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
-  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,54 +40,33 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        toast.current?.show({
-          severity: 'success',
-          summary: 'Mensaje Enviado',
-          detail: 'Gracias por contactarme. Te responderé pronto.',
-          life: 5000
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error('Error al enviar el mensaje');
-      }
-    } catch (error) {
-      toast.current?.show({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.',
-        life: 5000
-      });
-    } finally {
-      setLoading(false);
-    }
+    const subject = encodeURIComponent(formData.subject || 'Contacto desde el portafolio');
+    const body = encodeURIComponent(
+      `Nombre: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'agarciadarce@gmail.com',
-      link: 'mailto:agarciadarce@gmail.com'
+      value: CONTACT_EMAIL,
+      link: `mailto:${CONTACT_EMAIL}`
     },
     {
       icon: Phone,
       label: 'Teléfono',
       value: '(505) 88360570',
-      link: 'https://wa.me/50588360570'
+      link: WHATSAPP_URL
+    },
+    {
+      icon: MessageCircle,
+      label: 'WhatsApp',
+      value: '+505 8836 0570',
+      link: WHATSAPP_URL
     }
   ];
 
@@ -99,27 +74,31 @@ const ContactSection = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      link: 'https://linkedin.com/in/axelgarcia',
+      link: EXTERNAL_LINKS.linkedin,
       color: 'hover:text-blue-600'
     },
     {
       icon: Github,
       label: 'GitHub',
-      link: 'https://github.com/axelgarcia',
+      link: EXTERNAL_LINKS.github,
       color: 'hover:text-gray-900'
+    },
+    {
+      icon: MessageCircle,
+      label: 'WhatsApp',
+      link: WHATSAPP_URL,
+      color: 'hover:text-green-600'
     },
     {
       icon: Mail,
       label: 'Email',
-      link: 'mailto:agarciadarce@gmail.com',
+      link: `mailto:${CONTACT_EMAIL}`,
       color: 'hover:text-red-600'
     }
   ];
 
   return (
     <section id="contacto" className="section-padding bg-white">
-      <Toast ref={toast} />
-      
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -180,8 +159,13 @@ const ContactSection = () => {
                     <motion.a
                       key={index}
                       href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={social.link ? '_blank' : undefined}
+                      rel={social.link ? 'noopener noreferrer' : undefined}
+                      aria-label={social.label}
+                      aria-disabled={social.link ? undefined : true}
+                      onClick={(event) => {
+                        if (!social.link) event.preventDefault();
+                      }}
                       initial={{ opacity: 0, scale: 0 }}
                       animate={inView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
@@ -216,7 +200,10 @@ const ContactSection = () => {
                   label="Invítame un Café" 
                   icon={<Coffee className="w-4 h-4" />}
                   className="coffee-btn w-full"
-                  onClick={() => window.open('https://buymeacoffee.com/agarciadarce', '_blank')}
+                  onClick={() => {
+                    if (!EXTERNAL_LINKS.buyMeACoffee) return;
+                    window.open(EXTERNAL_LINKS.buyMeACoffee, '_blank', 'noopener,noreferrer');
+                  }}
                 />
               </motion.div>
             </Card>
@@ -299,11 +286,9 @@ const ContactSection = () => {
                 
                 <Button 
                   type="submit"
-                  label={loading ? "Enviando..." : "Enviar Mensaje"}
+                  label="Enviar por correo"
                   icon={<Send className="w-5 h-5" />}
                   className="btn-primary w-full"
-                  loading={loading}
-                  disabled={loading}
                 />
               </form>
               
@@ -338,8 +323,8 @@ const ContactSection = () => {
                 icon={<Phone className="w-5 h-5" />}
                 className="bg-white text-customBlue-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-300"
                 onClick={() => {
-                  const url = 'https://calendar.app.google/ATc1uxZiFkTtP2876';
-                  const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                  if (!EXTERNAL_LINKS.calendar) return;
+                  const newWindow = window.open(EXTERNAL_LINKS.calendar, '_blank', 'noopener,noreferrer');
                   if (newWindow) newWindow.opener = null;
                 }}
               />

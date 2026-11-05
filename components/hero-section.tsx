@@ -4,6 +4,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Mail } from 'lucide-react';
 import Image from 'next/image';
+import { CV_PATH } from '@/lib/external-links';
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -69,13 +70,14 @@ const HeroSection = () => {
                 Contáctame
               </button>
               
-              <button 
-                onClick={() => window.open('#', '_blank')}
-                className="bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+              <a
+                href={CV_PATH}
+                download="Axel-Garcia-CV.pdf"
+                className="bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-5 h-5 shrink-0" />
                 Descargar CV
-              </button>
+              </a>
             </motion.div>
           </motion.div>
           

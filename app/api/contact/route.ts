@@ -27,10 +27,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { 
-        message: 'Mensaje enviado exitosamente',
+      {
+        error: 'Este sitio no envía correo desde el servidor. El formulario abre mailto:agarciadarce@gmail.com.',
       },
-      { status: 201 }
+      { status: 501 }
     );
 
   } catch (error) {
