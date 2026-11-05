@@ -13,7 +13,6 @@ const SimpleNavigation = () => {
     { name: 'Inicio', to: 'inicio' },
     { name: 'Sobre Mí', to: 'sobre-mi' },
     { name: 'Experiencia', to: 'experiencia' },
-    { name: 'Proyectos', to: 'proyectos' },
     { name: 'Habilidades', to: 'habilidades' },
     { name: 'Certificados', to: 'certificados' },
     { name: 'Contacto', to: 'contacto' },

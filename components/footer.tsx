@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { Heart, ArrowUp } from 'lucide-react';
+import { CONTACT_EMAIL, WHATSAPP_URL } from '@/lib/external-links';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -70,7 +71,6 @@ const Footer = () => {
                 { name: 'Inicio', to: 'inicio' },
                 { name: 'Sobre Mí', to: 'sobre-mi' },
                 { name: 'Experiencia', to: 'experiencia' },
-                { name: 'Proyectos', to: 'proyectos' },
                 { name: 'Contacto', to: 'contacto' }
               ].map((link) => (
                 <button
@@ -103,15 +103,15 @@ const Footer = () => {
             >
               <p className="text-gray-400">
                 <a 
-                  href="mailto:agarciadarce@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="hover:text-blue-300 transition-colors duration-300"
                 >
-                  agarciadarce@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </p>
               <p className="text-gray-400">
                 <a 
-                  href="https://wa.me/50588360570"
+                  href={WHATSAPP_URL}
                   className="hover:text-blue-300 transition-colors duration-300"
                 >
                   (505) 88360570

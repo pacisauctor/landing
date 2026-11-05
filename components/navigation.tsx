@@ -13,7 +13,6 @@ const Navigation = () => {
     { name: 'Inicio', to: 'inicio' },
     { name: 'Sobre Mí', to: 'sobre-mi' },
     { name: 'Experiencia', to: 'experiencia' },
-   // { name: 'Proyectos', to: 'proyectos' },
     { name: 'Habilidades', to: 'habilidades' },
     { name: 'Certificados', to: 'certificados' },
     { name: 'Contacto', to: 'contacto' },
@@ -29,11 +28,13 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsOpen(false);
+    window.setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+      const top = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }, 50);
   };
 
   return (
@@ -42,9 +43,11 @@ const Navigation = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-          : 'bg-transparent'
+        isOpen
+          ? 'bg-white shadow-lg'
+          : scrolled
+            ? 'bg-white/95 backdrop-blur-md shadow-lg'
+            : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +92,7 @@ const Navigation = () => {
           initial={false}
           animate={{ height: isOpen ? 'auto' : 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden"
+          className={`md:hidden overflow-hidden ${isOpen ? 'bg-white shadow-lg' : ''}`}
         >
           <div className="py-4 space-y-4">
             {menuItems.map((item) => (
