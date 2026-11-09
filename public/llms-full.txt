@@ -2,7 +2,7 @@
 
 > Head of Technology en tizo desde enero de 2026, con base en Nicaragua. Trabaja entre ingeniería, producto, datos e IA. Su enfoque es entender el problema primero y después construir el sistema correcto.
 
-La página pública (https://agarciadarce.com) lo presenta como Axel García. Todo lo que sigue está tomado de esa landing. No hay perfiles públicos de LinkedIn ni de GitHub configurados en el sitio.
+La página pública (https://agarciadarce.com) lo presenta como Axel García. Todo lo que sigue está tomado de esa landing.
 
 ## Presentación
 
@@ -54,6 +54,11 @@ La página publica estas ocho:
 - Curso Excel Avanzado (Universidad Nacional de Ingeniería, 2024)
 - Introducción a la Ciencia de Datos (Colegio de Economistas de Lima - Perú, 2019)
 - Especialización de Ciencia de Datos (CEABAD, 2021)
+
+## Perfiles
+
+- LinkedIn: https://www.linkedin.com/in/agarciadarce/
+- GitHub: https://github.com/pacisauctor
 
 ## Contacto
 

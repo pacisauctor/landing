@@ -14,6 +14,11 @@ La página pública lo presenta como Axel García. El sitio es una sola landing 
 - [Contacto](https://agarciadarce.com/#contacto): correo, teléfono, WhatsApp y formulario
 - [CV](https://agarciadarce.com/cv/Axel-Garcia-CV.pdf): currículum en PDF
 
+## Perfiles
+
+- [LinkedIn](https://www.linkedin.com/in/agarciadarce/): perfil profesional
+- [GitHub](https://github.com/pacisauctor): código público
+
 ## Contacto
 
 - [Agendar una llamada](https://calendar.app.google/prgzVh2q3h4Yp2TU7): calendario de citas

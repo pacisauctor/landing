@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL } from '@/lib/external-links';
+import { CONTACT_EMAIL, EXTERNAL_LINKS } from '@/lib/external-links';
 
 /** Production site: https://agarciadarce.com */
 export const SITE_URL = 'https://agarciadarce.com';
@@ -30,4 +30,5 @@ export const personJsonLd = {
     '@type': 'PostalAddress',
     addressCountry: 'NI',
   },
+  sameAs: [EXTERNAL_LINKS.linkedin, EXTERNAL_LINKS.github],
 };
