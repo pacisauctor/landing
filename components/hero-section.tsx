@@ -1,135 +1,74 @@
-
 'use client';
 
-import { motion } from 'framer-motion';
-import { ChevronDown, Download, Mail } from 'lucide-react';
+import { Download, Phone } from 'lucide-react';
 import Image from 'next/image';
-import { CV_PATH } from '@/lib/external-links';
+import { CALENDAR_URL, CV_PATH } from '@/lib/external-links';
 
 const HeroSection = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="inicio" className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative overflow-x-hidden pt-16 sm:pt-20 lg:pt-0">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Contenido de texto */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="order-2 lg:order-1 text-center lg:text-left"
-          >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-            >
+    <section id="inicio" className="bg-gradient-to-br from-blue-50 to-blue-100 overflow-x-hidden pt-20 pb-8 sm:pt-24 sm:pb-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+          <div className="order-2 lg:order-1 text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
               Hola, soy{' '}
               <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                 Axel García
               </span>
-            </motion.h1>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl sm:text-2xl lg:text-3xl text-blue-600 font-semibold mb-6"
-            >
-              Head of Delivery & Engineering Operations en tizo
-            </motion.h2>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0"
-            >
-              Especializado en gestión de proyectos y desarrollo de software con más de 4 años de experiencia 
-              liderando equipos y creando soluciones tecnológicas innovadoras.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <button
-                type="button"
-                onClick={() => scrollToSection('contacto')}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-800 focus-visible:ring-offset-2"
+            </h1>
+
+            <h2 className="text-lg sm:text-xl lg:text-2xl text-blue-700 font-semibold mb-3">
+              Head of Technology en tizo
+            </h2>
+
+            <p className="text-base sm:text-lg text-gray-600 mb-5 max-w-xl mx-auto lg:mx-0">
+              Entiendo el problema primero y después armo el sistema: ingeniería, producto, datos e IA, con equipos que pueden decidir.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <a
+                href={CALENDAR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-800 focus-visible:ring-offset-2"
               >
-                <Mail className="w-5 h-5" aria-hidden="true" />
-                Contáctame
-              </button>
-              
+                <Phone className="w-5 h-5" aria-hidden="true" />
+                Agendar una llamada
+                <span className="sr-only">(se abre en una pestaña nueva)</span>
+              </a>
+
               <a
                 href={CV_PATH}
                 download="Axel-Garcia-CV.pdf"
-                className="bg-transparent border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-800 focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white font-medium py-2.5 px-5 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-800 focus-visible:ring-offset-2"
               >
                 <Download className="w-5 h-5 shrink-0" aria-hidden="true" />
                 Descargar CV
               </a>
-            </motion.div>
-          </motion.div>
-          
-          {/* Imagen de perfil */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="order-1 lg:order-2 flex justify-center lg:justify-end"
-          >
-            <div className="relative">
-              <div className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 relative">
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 rounded-full spin-slow"
-                  style={{ background: 'conic-gradient(from 0deg, #60a5fa, #1d4ed8, #60a5fa)' }}
-                ></div>
-                <div className="absolute inset-2 bg-white rounded-full overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/axel-garcia.webp"
-                    alt="Axel García"
-                    fill
-                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 288px, 224px"
-                    className="object-cover object-[center_22%]"
-                    priority
-                  />
-                </div>
+            </div>
+          </div>
+
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-56 lg:h-56">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full"
+                style={{ background: 'conic-gradient(from 0deg, #60a5fa, #1d4ed8, #60a5fa)' }}
+              />
+              <div className="absolute inset-1 bg-white rounded-full overflow-hidden shadow-md sm:inset-1.5">
+                <Image
+                  src="/images/axel-garcia.webp"
+                  alt="Axel García"
+                  fill
+                  sizes="(min-width: 1024px) 224px, (min-width: 640px) 176px, 144px"
+                  className="object-cover object-[center_22%]"
+                  priority
+                />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.button
-          type="button"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="cursor-pointer rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-          onClick={() => scrollToSection('sobre-mi')}
-          aria-label="Ir a la sección Sobre mí"
-        >
-          <ChevronDown className="w-8 h-8 text-blue-600" aria-hidden="true" />
-        </motion.button>
-      </motion.div>
     </section>
   );
 };

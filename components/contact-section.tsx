@@ -2,8 +2,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
@@ -20,10 +18,6 @@ import {
 import { CONTACT_EMAIL, EXTERNAL_LINKS, WHATSAPP_URL } from '@/lib/external-links';
 
 const ContactSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const [formData, setFormData] = useState({
     name: '',
@@ -100,40 +94,30 @@ const ContactSection = () => {
   return (
     <section id="contacto" className="section-padding bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+        <div
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl font-bold text-navy-900 mb-4">
-            Hablemos de tu <span className="text-gradient">Proyecto</span>
+          <h2 className="text-3xl font-bold text-navy-900 mb-2">
+            Hablemos
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            ¿Tienes una idea en mente? Me encantaría escuchar sobre tu proyecto y cómo puedo ayudarte a hacerlo realidad
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Cuéntame el problema. De ahí sale el sistema, el equipo o la decisión.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
           {/* Información de Contacto */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
           >
-            <Card className="p-8 h-full">
+            <Card className="p-5 sm:p-6 h-full">
               <h3 className="text-2xl font-bold text-navy-900 mb-6">
                 Información de Contacto
               </h3>
               
               <div className="space-y-6 mb-8 flex flex-col justify-start items-start">
                 {contactInfo.map((info, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     className="space-y-1 w-full"
                   >
                     <p className="text-sm font-medium text-gray-500">
@@ -143,11 +127,11 @@ const ContactSection = () => {
                       href={info.link}
                       target={info.link.startsWith('http') ? '_blank' : undefined}
                       rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="text-navy-900 font-semibold hover:text-customBlue-700 transition-colors duration-300 inline-flex max-w-full rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                      className="text-navy-900 font-semibold hover:text-customBlue-700 transition-colors duration-200 inline-flex max-w-full rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                     >
                       <span className={info.label === 'Email' ? 'break-all' : 'whitespace-nowrap'}>{info.value}</span>
                     </a>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
@@ -161,47 +145,36 @@ const ContactSection = () => {
                     const className = `social-link ${social.color} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2`;
                     if (!social.link) {
                       return (
-                        <motion.span
+                        <span
                           key={social.label}
                           aria-label={`${social.label} (enlace pendiente)`}
                           title="Enlace pendiente de configurar"
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={inView ? { opacity: 1, scale: 1 } : {}}
-                          transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                           className={`${className} opacity-50 cursor-not-allowed`}
                         >
                           <social.icon className="w-5 h-5" aria-hidden="true" />
-                        </motion.span>
+                        </span>
                       );
                     }
 
                     return (
-                      <motion.a
+                      <a
                         key={social.label}
                         href={social.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={inView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                         className={className}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
                       >
                         <social.icon className="w-5 h-5" aria-hidden="true" />
-                      </motion.a>
+                      </a>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Buy Me a Coffee */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border border-yellow-200"
+              {EXTERNAL_LINKS.buyMeACoffee ? (
+              <div
+                className="p-4 sm:p-5 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg border border-yellow-200"
               >
                 <div className="flex items-center space-x-3 mb-3">
                   <Coffee className="w-6 h-6 text-yellow-600" />
@@ -224,17 +197,15 @@ const ContactSection = () => {
                     window.open(EXTERNAL_LINKS.buyMeACoffee, '_blank', 'noopener,noreferrer');
                   }}
                 />
-              </motion.div>
+              </div>
+              ) : null}
             </Card>
-          </motion.div>
+          </div>
 
           {/* Formulario de Contacto */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+          <div
           >
-            <Card className="p-8 h-full">
+            <Card className="p-5 sm:p-6 h-full">
               <h3 className="text-2xl font-bold text-navy-900 mb-6">
                 Envíame un Mensaje
               </h3>
@@ -297,7 +268,7 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Cuéntame sobre tu proyecto o idea..."
-                    rows={6}
+                    rows={4}
                     className="form-textarea"
                     required
                   />
@@ -318,30 +289,26 @@ const ContactSection = () => {
                 </p>
               </div>
             </Card>
-          </motion.div>
+          </div>
         </div>
 
         {/* Call to Action Final */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 text-center"
+        <div
+          className="mt-8 text-center"
         >
-          <Card className="p-8 gradient-blue text-white">
-            <h3 className="text-2xl font-bold mb-4">
-              ¿Listo para comenzar tu proyecto?
+          <Card className="p-5 sm:p-6 gradient-blue text-white">
+            <h3 className="text-xl sm:text-2xl font-bold mb-2">
+              ¿Ordenamos la tecnología?
             </h3>
-            <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-              Ya sea que necesites un Project Manager experimentado, un Lead Developer, 
-              o simplemente quieras discutir una idea, estoy aquí para ayudarte.
+            <p className="text-base sm:text-lg mb-5 max-w-2xl mx-auto">
+              Dirección en ingeniería, producto, datos e IA, o un equipo que construya con criterio. Agendemos una llamada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={EXTERNAL_LINKS.calendar}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700"
               >
                 <Phone className="w-5 h-5" aria-hidden="true" />
                 Agendar una Llamada
@@ -350,11 +317,11 @@ const ContactSection = () => {
               {/* <Button 
                 label="Ver mi CV" 
                 icon={<ExternalLink className="w-5 h-5" />}
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-customBlue-600 font-medium py-3 px-8 rounded-lg transition-all duration-300"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-customBlue-600 font-medium py-3 px-8 rounded-lg transition-all duration-200"
               /> */}
             </div>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

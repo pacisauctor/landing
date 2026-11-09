@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
@@ -38,11 +37,8 @@ const Navigation = () => {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
         isOpen
           ? 'bg-white shadow-lg'
           : scrolled
@@ -51,17 +47,16 @@ const Navigation = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3">
           {/* Logo */}
-          <motion.button
+          <button
             type="button"
-            whileHover={{ scale: 1.05 }}
-            className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
             onClick={() => scrollToSection('inicio')}
             aria-label="Axel García, ir al inicio"
           >
-            <img src="/logo.svg" alt="" width={40} height={40} className="h-10 w-10" />
-          </motion.button>
+            <img src="/logo.svg" alt="" width={36} height={36} className="h-9 w-9" />
+          </button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
@@ -95,30 +90,27 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Menu */}
-        <motion.div
+        <div
           id="menu-movil"
-          initial={false}
-          animate={{ height: isOpen ? 'auto' : 0 }}
-          transition={{ duration: 0.3 }}
           aria-hidden={!isOpen}
           inert={!isOpen}
-          className={`md:hidden overflow-hidden ${isOpen ? 'bg-white shadow-lg' : ''}`}
+          className={`md:hidden overflow-hidden bg-white ${isOpen ? 'max-h-96 shadow-lg' : 'max-h-0'} transition-[max-height] duration-200`}
         >
-          <div className="py-4 space-y-2">
+          <div className="py-2 space-y-1">
             {menuItems.map((item) => (
               <button
                 type="button"
                 key={item.to}
                 onClick={() => scrollToSection(item.to)}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium cursor-pointer transition-colors duration-300 rounded-md px-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium cursor-pointer transition-colors duration-200 rounded-md px-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               >
                 {item.name}
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

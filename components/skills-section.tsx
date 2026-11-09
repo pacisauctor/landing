@@ -1,8 +1,6 @@
 
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Card } from 'primereact/card';
 import { Badge } from 'primereact/badge';
 import { ProgressBar } from 'primereact/progressbar';
@@ -20,10 +18,6 @@ import {
 } from 'lucide-react';
 
 const SkillsSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const technicalSkills = [
     {
@@ -130,42 +124,32 @@ const SkillsSection = () => {
   return (
     <section id="habilidades" className="section-padding bg-gray-50">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+        <div
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="text-3xl font-bold text-navy-900 mb-4">
             Mis <span className="text-gradient">Habilidades</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Combinación de competencias técnicas y habilidades blandas que me permiten liderar proyectos exitosos
           </p>
-        </motion.div>
+        </div>
 
         {/* Habilidades Técnicas */}
-        <div className="mb-16">
-          <motion.h3
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-2"
+        <div className="mb-8">
+          <h3
+            className="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"
           >
             <Code className="w-6 h-6 text-customBlue-600 shrink-0" aria-hidden="true" />
             Habilidades Técnicas
-          </motion.h3>
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {technicalSkills.map((category, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               >
-                <Card className="h-full p-6 hover:shadow-xl transition-all duration-300">
+                <Card className="h-full p-4 sm:p-5 hover:shadow-xl transition-all duration-200">
                   <div className="flex items-center mb-6 min-w-0 gap-3">
                     <div className={`w-10 h-10 ${category.bgColor} rounded-full flex items-center justify-center shrink-0`}>
                       <category.icon className={`w-5 h-5 ${category.color}`} aria-hidden="true" />
@@ -177,11 +161,8 @@ const SkillsSection = () => {
 
                   <div className="space-y-4">
                     {category.skills.map((skill, skillIndex) => (
-                      <motion.div
+                      <div
                         key={skillIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={inView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.5, delay: 0.5 + index * 0.1 + skillIndex * 0.05 }}
                       >
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-sm font-medium text-gray-700">
@@ -198,36 +179,30 @@ const SkillsSection = () => {
                             backgroundColor: '#e5e7eb',
                           }}
                         />
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Habilidades Blandas */}
         <div>
-          <motion.h3
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-2"
+          <h3
+            className="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"
           >
             <Heart className="w-6 h-6 text-red-500 shrink-0" aria-hidden="true" />
             Habilidades Blandas
-          </motion.h3>
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {softSkills.map((skill, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
               >
-                <Card className="p-6 h-full hover:shadow-xl transition-all duration-300">
+                <Card className="p-4 sm:p-5 h-full hover:shadow-xl transition-all duration-200">
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
                       <skill.icon className="w-5 h-5 text-blue-600" aria-hidden="true" />
@@ -257,46 +232,11 @@ const SkillsSection = () => {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Resumen de Competencias */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-16"
-        >
-          <Card className="p-8 gradient-blue text-white text-center">
-            <h3 className="text-2xl font-bold mb-6">
-              Combinación Perfecta de Habilidades
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl font-bold mb-2">4+</div>
-                <div className="text-lg opacity-90">Años de Experiencia</div>
-              </div>
-              
-              <div>
-                <div className="text-4xl font-bold mb-2">10+</div>
-                <div className="text-lg opacity-90">Tecnologías Dominadas</div>
-              </div>
-              
-              <div>
-                <div className="text-4xl font-bold mb-2">15+</div>
-                <div className="text-lg opacity-90">Proyectos Completados</div>
-              </div>
-            </div>
-            
-            <p className="text-lg opacity-90 mt-6 max-w-2xl mx-auto">
-              Mi enfoque integral combina expertise técnico con habilidades de liderazgo, 
-              permitiéndome entregar soluciones completas que superan las expectativas.
-            </p>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );
