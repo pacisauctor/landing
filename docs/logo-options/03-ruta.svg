@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ruta">
+  <path d="M15 50c10 0 12-28 22-22 7 4 5-10 14-12" fill="none" stroke="#2563eb" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="15" cy="50" r="7.5" fill="#2563eb"/>
+  <circle cx="36" cy="27" r="7.5" fill="#2563eb"/>
+  <path fill="#2563eb" d="M46 8.5 60 16l-12 7.2z"/>
+</svg>

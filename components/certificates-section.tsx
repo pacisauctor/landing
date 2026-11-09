@@ -1,18 +1,12 @@
 
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Card } from 'primereact/card';
 import { Badge } from 'primereact/badge';
 import { Award, Calendar, ExternalLink, Star } from 'lucide-react';
 import Image from 'next/image';
 
 const CertificatesSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const certificates = [
     {
@@ -120,45 +114,35 @@ const CertificatesSection = () => {
   };
 
   return (
-    <section id="certificados" className="section-padding bg-gray-50">
+    <section id="certificados" className="section-padding bg-white">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+        <div
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="text-3xl font-bold text-navy-900 mb-4">
             Mis <span className="text-gradient">Certificaciones</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Certificaciones y cursos que respaldan mi experiencia y compromiso con el aprendizaje continuo
           </p>
-        </motion.div>
+        </div>
 
         {/* Certificaciones Destacadas */}
-        <div className="mb-16">
-          <motion.h3
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center"
+        <div className="mb-8">
+          <h3
+            className="text-2xl font-bold text-navy-900 mb-4 flex items-center"
           >
             <Star className="w-6 h-6 mr-3 text-yellow-500" />
             Certificaciones Destacadas
-          </motion.h3>
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certificates.filter(cert => cert.destacado).map((cert, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               >
                 <Card className="h-full overflow-hidden project-card">
-                  <div className="relative h-40 bg-gradient-to-br from-customBlue-100 to-customBlue-200">
+                  <div className="relative h-28 bg-gradient-to-br from-customBlue-100 to-customBlue-200">
                     <Image
                       src={cert.imagen}
                       alt={cert.nombre}
@@ -178,7 +162,7 @@ const CertificatesSection = () => {
                     </div>
                   </div>
                   
-                  <div className="p-6 flex flex-col justify-start items-start">
+                  <div className="p-4 sm:p-5 flex flex-col justify-start items-start">
                     <h4 className="text-lg font-bold text-navy-900 mb-2 leading-tight">
                       {cert.nombre}
                     </h4>
@@ -198,32 +182,26 @@ const CertificatesSection = () => {
                     
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Otras Certificaciones */}
         <div>
-          <motion.h3
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-2xl font-bold text-navy-900 mb-8 flex items-center"
+          <h3
+            className="text-2xl font-bold text-navy-900 mb-4 flex items-center"
           >
             <Award className="w-6 h-6 mr-3 text-customBlue-600" />
             Otras Certificaciones y Cursos
-          </motion.h3>
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {certificates.filter(cert => !cert.destacado).map((cert, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
               >
-                <Card className="p-6 hover:shadow-xl transition-all duration-300">
+                <Card className="p-4 sm:p-5 hover:shadow-xl transition-all duration-200">
                   <div className="flex items-start space-x-4">
                     <div className="relative w-16 h-16 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                       <Image
@@ -260,51 +238,11 @@ const CertificatesSection = () => {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Estadísticas de Certificaciones */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16"
-        >
-          <Card className="p-8 gradient-blue text-white">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4">
-                Compromiso con la Excelencia
-              </h3>
-              <p className="text-lg opacity-90">
-                Mi dedicación al aprendizaje continuo se refleja en mis certificaciones
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold mb-2">8</div>
-                <div className="text-sm opacity-90">Certificaciones</div>
-              </div>
-              
-              <div>
-                <div className="text-3xl font-bold mb-2">4</div>
-                <div className="text-sm opacity-90">Áreas de Especialización</div>
-              </div>
-              
-              <div>
-                <div className="text-3xl font-bold mb-2">6</div>
-                <div className="text-sm opacity-90">Años de Formación</div>
-              </div>
-              
-              <div>
-                <div className="text-3xl font-bold mb-2">3</div>
-                <div className="text-sm opacity-90">Certificaciones Destacadas</div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );

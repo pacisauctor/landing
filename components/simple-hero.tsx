@@ -42,7 +42,7 @@ const SimpleHero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-xl sm:text-2xl lg:text-3xl text-blue-600 font-semibold mb-6"
             >
-              Project Manager & Lead Developer
+              Head of Technology en tizo
             </motion.h2>
             
             <motion.p

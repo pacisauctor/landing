@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 /* PrimeReact Theme */
 @import 'primereact/resources/themes/lara-light-blue/theme.css';
 @import 'primereact/resources/primereact.min.css';
@@ -66,7 +64,7 @@ body {
 
 /* Custom button styles */
 .btn-primary {
-  @apply bg-customBlue-600 hover:bg-customBlue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  @apply bg-customBlue-600 hover:bg-customBlue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 shadow-md;
 }
 
 .btn-secondary {
@@ -75,12 +73,12 @@ body {
 
 /* Card styles */
 .card {
-  @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2;
+  @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200;
 }
 
 /* Section spacing */
 .section-padding {
-  @apply py-20 px-4 sm:px-6 lg:px-8;
+  @apply py-10 sm:py-12 px-4 sm:px-6 lg:px-8;
 }
 
 /* Gradient backgrounds */
@@ -149,12 +147,12 @@ body {
 }
 
 .project-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-2px);
 }
 
 /* Timeline styles */
 .timeline-item {
-  @apply relative pl-8 pb-8;
+  @apply relative pl-6 pb-4;
 }
 
 .timeline-item::before {
@@ -197,4 +195,19 @@ body {
 
 .spin-slow {
   animation: spin 8s linear infinite;
+}
+
+::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .spin-slow {
+    animation: none;
+  }
 }

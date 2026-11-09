@@ -1,23 +1,26 @@
 
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Card } from 'primereact/card';
 import { Badge } from 'primereact/badge';
 import { Building, Calendar, Users, Code } from 'lucide-react';
 
 const ExperienceSection = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const experiences = [
     {
+      puesto: "Head of Technology",
+      empresa: "tizo",
+      periodo: "01/2026 – Actualidad",
+      descripcion: "Dirección de ingeniería, producto, datos e IA para convertir problemas de negocio en tecnología con valor medible.",
+      herramientas: ["Jira", "AWS", "Kubernetes", "Python", "SQL Server", "Jenkins"],
+      tipo: "full-time",
+      icon: Building
+    },
+    {
       puesto: "Head of Delivery & Engineering Operations",
       empresa: "tizo",
-      periodo: "2024 / Actualidad",
+      periodo: "2024 – 12/2025",
       descripcion: "Responsable de planificar, ejecutar y cerrar proyectos dentro de la organización.",
       herramientas: ["Jira", "Kubernetes", "Jenkins", "AWS", "Java", "Angular", "Python", "SQL Server"],
       tipo: "full-time",
@@ -111,51 +114,41 @@ const ExperienceSection = () => {
   return (
     <section id="experiencia" className="section-padding bg-white">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+        <div
+          className="text-center mb-8"
         >
-          <h2 className="text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="text-3xl font-bold text-navy-900 mb-4">
             Mi <span className="text-gradient">Experiencia</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Un recorrido por mi trayectoria profesional y los proyectos que han marcado mi carrera
           </p>
-        </motion.div>
+        </div>
 
         {/* Experiencia Principal */}
-        <div className="mb-16">
-          <motion.h3
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
+        <div className="mb-8">
+          <h3
+            className="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"
           >
-            <Building className="w-6 h-6 text-customBlue-600" />
+            <Building className="w-6 h-6 text-customBlue-600 shrink-0" aria-hidden="true" />
             Experiencia Profesional
-          </motion.h3>
+          </h3>
 
-          <div className="space-y-8">
+          <div className="space-y-4">
             {experiences.map((exp, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
                 className="timeline-item"
               >
-                <Card className="p-6 hover:shadow-xl transition-all duration-300">
+                <Card className="p-4 sm:p-5 hover:shadow-xl transition-all duration-200">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                     {/* Izquierda: Icono + Puesto — Empresa */}
-                    <div className="flex items-center gap-2 flex-1 min-w-0 overflow-hidden">
-                      <div className="min-w-0 flex-1 overflow-hidden">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-lg md:text-xl font-bold text-navy-900 truncate">{exp.puesto}</span>
-                          <span className="text-gray-400">—</span>
-                          <span className="text-customBlue-600 font-semibold truncate">{exp.empresa}</span>
+                    <div className="flex items-center gap-2 flex-1 min-w-0">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 min-w-0">
+                          <span className="text-lg md:text-xl font-bold text-navy-900">{exp.puesto}</span>
+                          <span className="text-gray-400" aria-hidden="true">—</span>
+                          <span className="text-customBlue-600 font-semibold">{exp.empresa}</span>
                         </div>
                       </div>
                     </div>
@@ -187,32 +180,26 @@ const ExperienceSection = () => {
                     ))}
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Experiencia Freelance */}
         <div>
-          <motion.h3
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
+          <h3
+            className="text-2xl font-bold text-navy-900 mb-4 flex items-center gap-2"
           >
-            <Code className="w-6 h-6 text-customBlue-600" />
+            <Code className="w-6 h-6 text-customBlue-600 shrink-0" aria-hidden="true" />
             Proyectos Freelance
-          </motion.h3>
+          </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {freelanceExperiences.map((exp, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
               >
-                <Card className="p-6 h-full hover:shadow-xl transition-all duration-300 project-card">
+                <Card className="p-4 sm:p-5 h-full hover:shadow-xl transition-all duration-200 project-card">
                   <div className="flex items-center mb-4">
                     <Badge 
                       value={getTypeLabel(exp.tipo)} 
@@ -253,7 +240,7 @@ const ExperienceSection = () => {
                     )}
                   </div>
                 </Card>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

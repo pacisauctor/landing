@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Axel García">
+  <rect width="64" height="64" fill="#2563eb"/>
+  <g transform="translate(5 5) scale(0.844)">
+    <path d="M11 58 32 7l21 51" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="miter" stroke-linecap="butt"/>
+    <path fill="#ffffff" d="M18 34h34v-6l10 10-10 10v-6H18z"/>
+  </g>
+</svg>
