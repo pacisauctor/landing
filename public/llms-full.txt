@@ -1,0 +1,80 @@
+# Axel García Darce
+
+> Head of Technology en tizo desde enero de 2026, con base en Nicaragua. Trabaja entre ingeniería, producto, datos e IA. Su enfoque es entender el problema primero y después construir el sistema correcto.
+
+La página pública (https://agarciadarce.com) lo presenta como Axel García. Todo lo que sigue está tomado de esa landing.
+
+## Presentación
+
+Entiende el problema primero y después arma el sistema: ingeniería, producto, datos e IA, con equipos que pueden decidir.
+
+## Sobre mí
+
+Empezó construyendo software. Hoy el trabajo es entender el problema primero y después armar el sistema correcto: ingeniería, producto, datos o IA.
+
+A veces ese sistema es código. A veces es una arquitectura, un proceso o un equipo que puede decidir sin depender de una sola persona.
+
+Principios publicados en la página:
+
+- Tecnología con intención. Primero el problema y el resultado.
+- Sistemas, no heroicidades. El equipo decide sin un héroe.
+- Resultados, no volumen. Importa el valor, no la cantidad.
+
+Cifras que muestra la sección: 4+ años de experiencia, 15+ proyectos, 8 certificaciones, ubicación Nicaragua.
+
+## Experiencia
+
+Roles que la página lista como tiempo completo:
+
+- Head of Technology, tizo (01/2026 – actualidad). Dirección de ingeniería, producto, datos e IA para convertir problemas de negocio en tecnología con valor medible. Herramientas mostradas: Jira, AWS, Kubernetes, Python, SQL Server, Jenkins.
+- Head of Delivery & Engineering Operations, tizo (2024 – 12/2025). Planificar, ejecutar y cerrar proyectos dentro de la organización.
+- Backend Lead Developer, tizo (01/2022 – 12/2023). Liderar equipo para nuevas funcionalidades y mantenimiento del sistema.
+- Lead Course, Web50x.ni · Fundación UNO (06/2021 – 12/2021). Liderar un curso de la fundación UNO, organizar cursos y gestionar personal y estudiantes.
+- Main Teacher Assistant, CS50x.ni · Fundación UNO (06/2019 – 06/2021 y 01/2022 – 06/2022). Dar clases y asistir a estudiantes en sus proyectos.
+
+Freelance que la página lista:
+
+- VP of Engineering, Canela (12/2024 – actualidad). Sistemas de gestión de proyectos y equipos de desarrollo.
+- Full Stack Developer, Barter Capital (01/2022 – 06/2022). Funcionalidades nuevas y mantenimiento de software heredado.
+- Developer, Breve Tech (06/2019 – actualidad). Diseñar e implementar sistemas según la necesidad del cliente.
+
+## Habilidades
+
+La página agrupa habilidades técnicas en gestión de proyectos (Excel, Jira, Power BI, Click Up), backend (Python, Node.js, Java, Fast API), frontend (React, NextJS, Angular, JavaScript), bases de datos (PostgreSQL, SQL Server, MongoDB, Redis) y cloud y DevOps (AWS, Kubernetes, Jenkins, Docker). También lista habilidades blandas: comunicación efectiva, liderazgo, pensamiento crítico, creatividad, empatía y resiliencia. Los porcentajes están en la propia sección.
+
+## Certificaciones
+
+La página publica estas ocho:
+
+- Oracle Certified Associate, Java SE 8 Programmer (Oracle, 2020)
+- PCEP – Certified Entry-Level Python Programmer Certification (Python Institute, 2022)
+- Scrum Foundation Professional Certificate (CertiProf, 2020)
+- Student CS50x.ni (Fundación UNO - Harvard, 2018)
+- Teacher CS50x.ni (Fundación UNO - Harvard, 2018)
+- Curso Excel Avanzado (Universidad Nacional de Ingeniería, 2024)
+- Introducción a la Ciencia de Datos (Colegio de Economistas de Lima - Perú, 2019)
+- Especialización de Ciencia de Datos (CEABAD, 2021)
+
+## Perfiles
+
+- LinkedIn: https://www.linkedin.com/in/agarciadarce/
+- GitHub: https://github.com/pacisauctor
+
+## Contacto
+
+- Agendar una llamada: https://calendar.app.google/prgzVh2q3h4Yp2TU7
+- Correo: agarciadarce@gmail.com
+- WhatsApp: https://wa.me/50588360570 (+505 8836 0570)
+- Teléfono: (505) 88360570
+- CV: https://agarciadarce.com/cv/Axel-Garcia-CV.pdf
+- Formulario: https://agarciadarce.com/#contacto (abre el correo del visitante; el sitio no envía el mensaje desde un servidor)
+
+## Enlaces de la página
+
+- Inicio: https://agarciadarce.com/#inicio
+- Sobre mí: https://agarciadarce.com/#sobre-mi
+- Experiencia: https://agarciadarce.com/#experiencia
+- Habilidades: https://agarciadarce.com/#habilidades
+- Certificaciones: https://agarciadarce.com/#certificados
+- Contacto: https://agarciadarce.com/#contacto
+- Índice corto: https://agarciadarce.com/llms.txt

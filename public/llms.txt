@@ -1,0 +1,31 @@
+# Axel García Darce
+
+> Head of Technology en tizo desde enero de 2026, con base en Nicaragua. Trabaja entre ingeniería, producto, datos e IA. Su enfoque es entender el problema primero y después construir el sistema correcto.
+
+La página pública lo presenta como Axel García. El sitio es una sola landing en español en [agarciadarce.com](https://agarciadarce.com).
+
+## Secciones
+
+- [Inicio](https://agarciadarce.com/#inicio): nombre, cargo y forma de agendar o descargar el CV
+- [Sobre mí](https://agarciadarce.com/#sobre-mi): enfoque, tres principios y cifras (4+ años, 15+ proyectos, 8 certificaciones, Nicaragua)
+- [Experiencia](https://agarciadarce.com/#experiencia): roles en tizo y trabajo freelance
+- [Habilidades](https://agarciadarce.com/#habilidades): técnicas y blandas
+- [Certificaciones](https://agarciadarce.com/#certificados): cursos y certificados publicados
+- [Contacto](https://agarciadarce.com/#contacto): correo, teléfono, WhatsApp y formulario
+- [CV](https://agarciadarce.com/cv/Axel-Garcia-CV.pdf): currículum en PDF
+
+## Perfiles
+
+- [LinkedIn](https://www.linkedin.com/in/agarciadarce/): perfil profesional
+- [GitHub](https://github.com/pacisauctor): código público
+
+## Contacto
+
+- [Agendar una llamada](https://calendar.app.google/prgzVh2q3h4Yp2TU7): calendario de citas
+- [Correo](mailto:agarciadarce@gmail.com): agarciadarce@gmail.com
+- [WhatsApp](https://wa.me/50588360570): +505 8836 0570
+- [Teléfono](tel:+50588360570): (505) 88360570
+
+## Opcional
+
+- [Texto ampliado para asistentes](https://agarciadarce.com/llms-full.txt): mismo contenido, con experiencia, principios y certificaciones escritas
