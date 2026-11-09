@@ -15,8 +15,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="inicio" className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative overflow-x-hidden pt-16 sm:pt-20 lg:pt-0">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Contenido de texto */}
           <motion.div
@@ -62,20 +62,21 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <button 
+              <button
+                type="button"
                 onClick={() => scrollToSection('contacto')}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-800 focus-visible:ring-offset-2"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5" aria-hidden="true" />
                 Contáctame
               </button>
               
               <a
                 href={CV_PATH}
                 download="Axel-Garcia-CV.pdf"
-                className="bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap"
+                className="bg-transparent border-2 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-800 focus-visible:ring-offset-2"
               >
-                <Download className="w-5 h-5 shrink-0" />
+                <Download className="w-5 h-5 shrink-0" aria-hidden="true" />
                 Descargar CV
               </a>
             </motion.div>
@@ -89,17 +90,19 @@ const HeroSection = () => {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative">
-              <div className="w-80 h-80 lg:w-96 lg:h-96 relative">
+              <div className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 relative">
                 <div
+                  aria-hidden="true"
                   className="absolute inset-0 rounded-full spin-slow"
                   style={{ background: 'conic-gradient(from 0deg, #60a5fa, #1d4ed8, #60a5fa)' }}
                 ></div>
                 <div className="absolute inset-2 bg-white rounded-full overflow-hidden shadow-lg">
                   <Image
-                    src="axel.jpg"
-                    alt="Axel García - Project Manager & Developer"
+                    src="/images/axel-garcia.webp"
+                    alt="Axel García"
                     fill
-                    className="object-cover"
+                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 288px, 224px"
+                    className="object-cover object-[center_22%]"
                     priority
                   />
                 </div>
@@ -116,14 +119,16 @@ const HeroSection = () => {
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
-        <motion.div
+        <motion.button
+          type="button"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="cursor-pointer"
+          className="cursor-pointer rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
           onClick={() => scrollToSection('sobre-mi')}
+          aria-label="Ir a la sección Sobre mí"
         >
-          <ChevronDown className="w-8 h-8 text-blue-600" />
-        </motion.div>
+          <ChevronDown className="w-8 h-8 text-blue-600" aria-hidden="true" />
+        </motion.button>
       </motion.div>
     </section>
   );

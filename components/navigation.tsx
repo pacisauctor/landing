@@ -53,21 +53,24 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <motion.div
+          <motion.button
+            type="button"
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent cursor-pointer"
+            className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
             onClick={() => scrollToSection('inicio')}
+            aria-label="Axel García, ir al inicio"
           >
-            AG
-          </motion.div>
+            <img src="/logo.svg" alt="" width={40} height={40} className="h-10 w-10" />
+          </motion.button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <button
+                type="button"
                 key={item.to}
                 onClick={() => scrollToSection(item.to)}
-                className="text-gray-700 hover:text-blue-600 font-medium cursor-pointer transition-colors duration-300"
+                className="text-gray-700 hover:text-blue-600 font-medium cursor-pointer transition-colors duration-300 rounded-md px-1 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               >
                 {item.name}
               </button>
@@ -76,8 +79,12 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isOpen}
+            aria-controls="menu-movil"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
           >
             {isOpen ? (
               <X className="w-6 h-6 text-gray-700" />
@@ -89,17 +96,21 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         <motion.div
+          id="menu-movil"
           initial={false}
           animate={{ height: isOpen ? 'auto' : 0 }}
           transition={{ duration: 0.3 }}
+          aria-hidden={!isOpen}
+          inert={!isOpen}
           className={`md:hidden overflow-hidden ${isOpen ? 'bg-white shadow-lg' : ''}`}
         >
-          <div className="py-4 space-y-4">
+          <div className="py-4 space-y-2">
             {menuItems.map((item) => (
               <button
+                type="button"
                 key={item.to}
                 onClick={() => scrollToSection(item.to)}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium cursor-pointer transition-colors duration-300"
+                className="block w-full text-left text-gray-700 hover:text-blue-600 font-medium cursor-pointer transition-colors duration-300 rounded-md px-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
               >
                 {item.name}
               </button>

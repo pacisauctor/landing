@@ -3,8 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 /* PrimeReact Theme */
 @import 'primereact/resources/themes/lara-light-blue/theme.css';
 @import 'primereact/resources/primereact.min.css';
@@ -197,4 +195,19 @@ body {
 
 .spin-slow {
   animation: spin 8s linear infinite;
+}
+
+::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .spin-slow {
+    animation: none;
+  }
 }

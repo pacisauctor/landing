@@ -128,7 +128,7 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="habilidades" className="section-padding bg-white">
+    <section id="habilidades" className="section-padding bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -151,9 +151,9 @@ const SkillsSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
+            className="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-2"
           >
-            <Code className="w-6 h-6 text-customBlue-600" />
+            <Code className="w-6 h-6 text-customBlue-600 shrink-0" aria-hidden="true" />
             Habilidades Técnicas
           </motion.h3>
 
@@ -166,8 +166,11 @@ const SkillsSection = () => {
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               >
                 <Card className="h-full p-6 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center mb-6 min-w-0">
-                    <h4 className="text-base sm:text-lg font-bold text-navy-900 truncate flex-1 min-w-0">
+                  <div className="flex items-center mb-6 min-w-0 gap-3">
+                    <div className={`w-10 h-10 ${category.bgColor} rounded-full flex items-center justify-center shrink-0`}>
+                      <category.icon className={`w-5 h-5 ${category.color}`} aria-hidden="true" />
+                    </div>
+                    <h4 className="text-base sm:text-lg font-bold text-navy-900 leading-tight">
                       {category.categoria}
                     </h4>
                   </div>
@@ -210,9 +213,9 @@ const SkillsSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
+            className="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-2"
           >
-            <Heart className="w-6 h-6 text-red-500" />
+            <Heart className="w-6 h-6 text-red-500 shrink-0" aria-hidden="true" />
             Habilidades Blandas
           </motion.h3>
 
@@ -225,8 +228,11 @@ const SkillsSection = () => {
                 transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
               >
                 <Card className="p-6 h-full hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-start">
-                    <div className="flex-1">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
+                      <skill.icon className="w-5 h-5 text-blue-600" aria-hidden="true" />
+                    </div>
+                    <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-center mb-2">
                         <h4 className="text-lg font-bold text-navy-900">
                           {skill.name}

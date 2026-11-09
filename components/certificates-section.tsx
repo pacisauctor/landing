@@ -120,7 +120,7 @@ const CertificatesSection = () => {
   };
 
   return (
-    <section id="certificados" className="section-padding bg-gray-50">
+    <section id="certificados" className="section-padding bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}

@@ -29,21 +29,26 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-4"
+              className="mb-4 flex flex-col items-center md:items-start gap-3"
             >
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent mb-2">
-                Axel García
-              </h3>
-              <p className="text-gray-300 text-sm">
-                Head of Delivery & Engineering Operations en Tizo
-              </p>
+              <span className="inline-flex rounded-2xl bg-white p-1">
+                <img src="/logo.svg" alt="" width={40} height={40} className="h-10 w-10" />
+              </span>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Axel García
+                </h3>
+                <p className="text-blue-50 text-sm">
+                  Head of Delivery & Engineering Operations en Tizo
+                </p>
+              </div>
             </motion.div>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-gray-400 text-sm leading-relaxed"
+              className="text-blue-50 text-sm leading-relaxed"
             >
               Transformando ideas en soluciones tecnológicas innovadoras 
               con más de 5 años de experiencia en gestión de proyectos y desarrollo.
@@ -56,7 +61,7 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg font-semibold mb-4 text-blue-300"
+              className="text-lg font-semibold mb-4 text-white"
             >
               Enlaces Rápidos
             </motion.h4>
@@ -74,9 +79,10 @@ const Footer = () => {
                 { name: 'Contacto', to: 'contacto' }
               ].map((link) => (
                 <button
+                  type="button"
                   key={link.to}
                   onClick={() => scrollToSection(link.to)}
-                  className="block w-full text-left text-gray-400 hover:text-blue-300 transition-colors duration-300 cursor-pointer text-sm"
+                  className="block w-full text-center text-blue-50 hover:text-white transition-colors duration-300 cursor-pointer text-sm py-1.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   {link.name}
                 </button>
@@ -90,7 +96,7 @@ const Footer = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-lg font-semibold mb-4 text-blue-300"
+              className="text-lg font-semibold mb-4 text-white"
             >
               Contacto
             </motion.h4>
@@ -101,18 +107,20 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="space-y-2 text-sm"
             >
-              <p className="text-gray-400">
+              <p className="text-blue-50">
                 <a 
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="hover:text-blue-300 transition-colors duration-300"
+                  className="hover:text-white break-all transition-colors duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   {CONTACT_EMAIL}
                 </a>
               </p>
-              <p className="text-gray-400">
+              <p className="text-blue-50">
                 <a 
                   href={WHATSAPP_URL}
-                  className="hover:text-blue-300 transition-colors duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   (505) 88360570
                 </a>
@@ -126,14 +134,14 @@ const Footer = () => {
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="border-t border-gray-700 pt-8"
+          className="border-t border-white/40 pt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-gray-400 text-sm mb-4 md:mb-0 flex items-center"
+              className="text-blue-50 text-sm mb-4 md:mb-0 flex items-center"
             >
               © {currentYear} Axel García. Hecho con{' '}
               <Heart className="w-4 h-4 text-red-500 mx-1" />
@@ -141,11 +149,12 @@ const Footer = () => {
             </motion.p>
             
             <motion.button
+              type="button"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
               onClick={scrollToTop}
-              className="flex items-center space-x-2 text-gray-400 hover:text-blue-300 transition-colors duration-300 text-sm"
+              className="flex items-center space-x-2 text-blue-50 hover:text-white transition-colors duration-300 text-sm rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

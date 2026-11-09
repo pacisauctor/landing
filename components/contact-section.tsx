@@ -98,7 +98,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contacto" className="section-padding bg-white">
+    <section id="contacto" className="section-padding bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}
@@ -141,9 +141,11 @@ const ContactSection = () => {
                     </p>
                     <a 
                       href={info.link}
-                      className="text-navy-900 font-semibold hover:text-customBlue-600 transition-colors duration-300 flex items-center gap-2 whitespace-nowrap w-full sm:w-auto min-w-0 overflow-hidden"
+                      target={info.link.startsWith('http') ? '_blank' : undefined}
+                      rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="text-navy-900 font-semibold hover:text-customBlue-700 transition-colors duration-300 inline-flex max-w-full rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                     >
-                      <span className="truncate max-w-full">{String(info.value).replace(/\s/g, '\u00A0')}</span>
+                      <span className={info.label === 'Email' ? 'break-all' : 'whitespace-nowrap'}>{info.value}</span>
                     </a>
                   </motion.div>
                 ))}
@@ -155,27 +157,42 @@ const ContactSection = () => {
                   Sígueme en Redes Sociales
                 </h4>
                 <div className="flex space-x-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.link}
-                      target={social.link ? '_blank' : undefined}
-                      rel={social.link ? 'noopener noreferrer' : undefined}
-                      aria-label={social.label}
-                      aria-disabled={social.link ? undefined : true}
-                      onClick={(event) => {
-                        if (!social.link) event.preventDefault();
-                      }}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                      className={`social-link ${social.color}`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <social.icon className="w-5 h-5" />
-                    </motion.a>
-                  ))}
+                  {socialLinks.map((social, index) => {
+                    const className = `social-link ${social.color} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2`;
+                    if (!social.link) {
+                      return (
+                        <motion.span
+                          key={social.label}
+                          aria-label={`${social.label} (enlace pendiente)`}
+                          title="Enlace pendiente de configurar"
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={inView ? { opacity: 1, scale: 1 } : {}}
+                          transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                          className={`${className} opacity-50 cursor-not-allowed`}
+                        >
+                          <social.icon className="w-5 h-5" aria-hidden="true" />
+                        </motion.span>
+                      );
+                    }
+
+                    return (
+                      <motion.a
+                        key={social.label}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                        className={className}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <social.icon className="w-5 h-5" aria-hidden="true" />
+                      </motion.a>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -199,7 +216,9 @@ const ContactSection = () => {
                 <Button 
                   label="Invítame un Café" 
                   icon={<Coffee className="w-4 h-4" />}
-                  className="coffee-btn w-full"
+                  className={`coffee-btn w-full ${EXTERNAL_LINKS.buyMeACoffee ? '' : 'opacity-60 cursor-not-allowed'}`}
+                  disabled={!EXTERNAL_LINKS.buyMeACoffee}
+                  title={EXTERNAL_LINKS.buyMeACoffee ? 'Invítame un café' : 'Enlace pendiente de configurar'}
                   onClick={() => {
                     if (!EXTERNAL_LINKS.buyMeACoffee) return;
                     window.open(EXTERNAL_LINKS.buyMeACoffee, '_blank', 'noopener,noreferrer');
@@ -318,16 +337,16 @@ const ContactSection = () => {
               o simplemente quieras discutir una idea, estoy aquí para ayudarte.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                label="Agendar una Llamada"
-                icon={<Phone className="w-5 h-5" />}
-                className="bg-white text-customBlue-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-300"
-                onClick={() => {
-                  if (!EXTERNAL_LINKS.calendar) return;
-                  const newWindow = window.open(EXTERNAL_LINKS.calendar, '_blank', 'noopener,noreferrer');
-                  if (newWindow) newWindow.opener = null;
-                }}
-              />
+              <a
+                href={EXTERNAL_LINKS.calendar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700"
+              >
+                <Phone className="w-5 h-5" aria-hidden="true" />
+                Agendar una Llamada
+                <span className="sr-only">(se abre en una pestaña nueva)</span>
+              </a>
               {/* <Button 
                 label="Ver mi CV" 
                 icon={<ExternalLink className="w-5 h-5" />}

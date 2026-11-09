@@ -132,9 +132,9 @@ const ExperienceSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
+            className="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-2"
           >
-            <Building className="w-6 h-6 text-customBlue-600" />
+            <Building className="w-6 h-6 text-customBlue-600 shrink-0" aria-hidden="true" />
             Experiencia Profesional
           </motion.h3>
 
@@ -150,12 +150,12 @@ const ExperienceSection = () => {
                 <Card className="p-6 hover:shadow-xl transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                     {/* Izquierda: Icono + Puesto — Empresa */}
-                    <div className="flex items-center gap-2 flex-1 min-w-0 overflow-hidden">
-                      <div className="min-w-0 flex-1 overflow-hidden">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <span className="text-lg md:text-xl font-bold text-navy-900 truncate">{exp.puesto}</span>
-                          <span className="text-gray-400">—</span>
-                          <span className="text-customBlue-600 font-semibold truncate">{exp.empresa}</span>
+                    <div className="flex items-center gap-2 flex-1 min-w-0">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 min-w-0">
+                          <span className="text-lg md:text-xl font-bold text-navy-900">{exp.puesto}</span>
+                          <span className="text-gray-400" aria-hidden="true">—</span>
+                          <span className="text-customBlue-600 font-semibold">{exp.empresa}</span>
                         </div>
                       </div>
                     </div>
@@ -198,9 +198,9 @@ const ExperienceSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl font-bold text-navy-900 mb-8 inline-flex items-center gap-2 justify-center whitespace-nowrap"
+            className="text-2xl font-bold text-navy-900 mb-8 flex items-center gap-2"
           >
-            <Code className="w-6 h-6 text-customBlue-600" />
+            <Code className="w-6 h-6 text-customBlue-600 shrink-0" aria-hidden="true" />
             Proyectos Freelance
           </motion.h3>
 
